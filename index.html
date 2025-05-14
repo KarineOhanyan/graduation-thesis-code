@@ -153,15 +153,9 @@ class Number {
              if (this.Operation(this.values[i], this.values[j]) === e && this.Operation(this.values[j], this.values[i]) === e) bool = true;
             } if(!bool) return false;
         } return true;}
-    Abelian()
-    {
-       for(let i = 0; i < this.values.length; i++)
-        {
-            for(let j = 0; j < this.values.length; j++)
-            {
-                if(this.Operation(this.values[i], this.values[j])=== this.Operation(this.values[j], this.values[i]))
-                return true;}
-        } return false;}
+    Abelian(){
+        if(this.operation === '+' || this.operation === '*') return true;
+        return false;}
     Group() {
         let equal = this.Equal();
         if (equal) document.getElementById("equal").innerHTML = "\u274C Տարրերի կրկնություն";
@@ -273,12 +267,9 @@ class Set{
         } if (!bool) return false; 
     } return true;}
     Abelian() {
-        for(let i = 0; i < this.sets.length; i++){
-                for(let j = 0; j < this.sets.length; j++)
-                {
-                    if(this.Equal(this.Operation(this.sets[i], this.sets[j]),this.Operation(this.sets[j], this.sets[i]))) return true;
-                }
-            } return false;}
+        if(this.operation === '+' || this.operation === '*') return true;
+        return false;
+        }
     Group() {
         let equal = this.Equality();
         if (!equal)  document.getElementById("equal_set").innerHTML = "\u274C Տարրերի կրկնություն";
